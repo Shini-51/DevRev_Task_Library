@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Register Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="signup.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
+  <h2 style="color: crimson;"><span style="color: Black;"><strong>DevRev</strong></span> Library</h2>
+  <h3>Sign Up</h3>
+  <form id="signup-form" action="lib_login.html">
+    <p>
+    <input type="text" id="username" name="username" placeholder="Set Username" pattern="^[A-Za-z]{1,}" title="Set Username without blank space" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+        <input type="tel" id="mobile" name="mobile" placeholder="Phone Number(1234 567890)" pattern="[0-9]{4} [0-9]{6}" title="Enter your Phone Number" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="email" id="email" name="email" placeholder="Email Address" title="Enter your Email address"><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Set Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="password" id="confirm-password" name="confirm-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Confirm Password" title="Retype your password" required><i class="validation"><span></span><span></span></i>
+    <div id="password-error" class="error-message"></div>
+    </p> 
+    <p>
+    <input type="submit" id="Register" value="Register">
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p>Already have an account? <a href="lib_login.html">Login</a><p>
+  </div>
+</div><!--login-form-wrap-->
+<!-- partial -->
+<script>
+    <!-- const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const passwordError = document.getElementById('password-error');
+
+    confirmPasswordInput.addEventListener('input', function() {
+    if (confirmPasswordInput.value !== passwordInput.value) {
+        passwordError.textContent = 'Passwords do not match.';
+    } else {
+        passwordError.textContent = '';
+    }
+    }); -->
+
+
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+        event.preventDefault();{
+        const nameInput = document.getElementById('username');
+        const phoneInput = document.getElementById('mobile');
+        const emailInput = document.getElementById('email');  
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+      
+        if (
+          !usernameInput.value ||
+          !emailInput.value ||
+          !mobileInput.value ||
+          !passwordInput.value ||
+          !confirmPasswordInput.value
+        ) {
+          alert('Please fill in all the fields.');
+          return false; // Prevent form submission
+        }
+      
+        if (passwordInput.value !== confirmPasswordInput.value) {
+          alert('Passwords do not match. Please try again.');
+          return false; // Prevent form submission
+        }
+        alert('Form submitted successfully!');
+        window.location.href = 'lib_login.html';
+        return true;
+        }
+    }); 
+      
+</script>
+</body>
+</html>

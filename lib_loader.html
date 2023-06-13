@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="loader.css">
+        <title>Loading...</title>
+    </head>
+    <body class="bodyloader">
+        <div>
+            <p class="fade-in-out" id="loading" style="text-align: center;color:crimson"> Loading...</p>
+            <div class="loader">
+                <video id="loaderVideo" src="Loadingvdo.mp4" autoplay loop muted></video>
+            </div>
+        </div>
+        <script>
+             //text fading//
+             window.addEventListener('load', function() {
+                var fadeText = document.querySelector('.fade-in-out');
+                fadeText.style.animationPlayState = 'running';
+              });                   
+            //playback peed//
+            window.addEventListener('load', function() {
+                var video = document.getElementById("loaderVideo");
+                
+                video.addEventListener('canplaythrough', function() {
+                  video.playbackRate = 0.5;
+                  video.play();
+                }, { once: true });
+              });   
+
+              document.addEventListener("DOMContentLoaded", function() {
+                setTimeout(function() {
+                  var loaderVideo = document.getElementById('loaderVideo');
+                  if (loaderVideo) {
+                    loaderVideo.pause(); // Pause the video
+                  }
+                  window.location.href = "lib_login.html"; // Redirect to login page
+                }, 5000); // Wait for 5 seconds (5000 milliseconds)
+              });
+              
+        </script>
+    </body>
+</html>
